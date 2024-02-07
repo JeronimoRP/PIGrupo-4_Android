@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Incidencias</string>
+
+    <!--Actividad DatosInicioSesion -->
+    <string name="InfoInicioSesion">Iniciar Sesion con:</string>
+    <string name="InicioSesionEducantabria">Educantabria</string>
+    <string name="InicioSesionDominio">Dominio</string>
+
+    <!--Actividad DatosInicioSesion -->
+    <string name="vas_iniciar_sesion_con">Vas iniciar sesion con educantabria</string>
+    <string name="vas_a_inicar_sesion_con">Vas a inicar sesion con el dominio</string>
+    <string name="btniniciar_sesion">Iniciar Sesion</string>
+    <string name="btnAtras">Atras</string>
+</resources>
