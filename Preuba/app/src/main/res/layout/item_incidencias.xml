@@ -63,9 +63,9 @@
                 android:id="@+id/btnEstado"
                 android:layout_width="233dp"
                 android:layout_height="wrap_content"
-
                 android:clickable="false"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_marginLeft="12sp"
                 android:layout_marginRight="12sp"
@@ -73,6 +73,17 @@
                 app:cornerRadius="50dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/txtDescripcion" />
+
+            <ImageButton
+                android:id="@+id/imgbotoneditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/editar"
+                android:layout_gravity="right"
+                android:layout_marginEnd="20sp"
+                android:backgroundTint="@color/azulito"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/btnEstado"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

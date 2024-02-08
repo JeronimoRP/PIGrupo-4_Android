@@ -13,24 +13,23 @@
         android:theme="@style/Theme.Incidencias"
         tools:targetApi="31">
         <activity
-            android:name=".InicioSesion.IncidenciaSecundaria.IncidenciaSecundaria"
-            android:exported="false" >
+            android:name=".InicioSesion.EditarIncidencias.EditarIncidencias"
+            android:exported="false" />
+        <activity
+            android:name=".InicioSesion.IncidenciaSecundaria.IncidenciaResuminda"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".InicioSesion.DatosInicioSesion"
             android:exported="false" />
         <activity
             android:name=".InicioSesion.InicioSesion"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

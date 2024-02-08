@@ -8,7 +8,7 @@ import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaViewHol
 import es.ua.eps.incidencias.R
 
 
-class IncidenciaAdaptador  (val incidenciaList: List<Incidencia>) :
+class IncidenciaAdaptador  (val incidenciaList: List<Incidencia>,private val onClickListener:(Incidencia) ->Unit) :
     RecyclerView.Adapter<IncidenciaViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IncidenciaViewHolder {
         //Nos infla la lista
@@ -21,7 +21,7 @@ class IncidenciaAdaptador  (val incidenciaList: List<Incidencia>) :
     override fun onBindViewHolder(holder: IncidenciaViewHolder, position: Int) {
         //Este metodo pinta
         val item = incidenciaList[position]
-        holder.bind(item)
+        holder.bind(item, onClickListener)
     }
 
     override fun getItemCount(): Int {
