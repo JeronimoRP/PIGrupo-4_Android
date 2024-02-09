@@ -8,4 +8,7 @@
     <string name="btniniciar_sesion">Iniciar Sesion</string>
     <string name="incidenciasToolbar">Incidencias</string>
     <string name="editar_incidencia">EDITAR INCIDENCIA</string>
+    <string name="aceptarcambios">Aceptar</string>
+    <string name="escribetucomentario">Escribe tu comentario sobre esta incidencia</string>
+    <string name="hint_escribetucomentario">Escribe tu comentario</string>
 </resources>

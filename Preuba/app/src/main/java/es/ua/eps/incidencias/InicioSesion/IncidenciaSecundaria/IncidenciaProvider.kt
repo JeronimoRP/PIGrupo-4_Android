@@ -1,7 +1,7 @@
 package es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria
 
 object IncidenciaProvider {
-    val incidenciaList: MutableList<Incidencia> = mutableListOf<Incidencia>(
+   val incidenciaList: MutableList<Incidencia> = mutableListOf<Incidencia>(
         Incidencia(
             "IFO02",
             "07",

@@ -3,13 +3,12 @@ package es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.Incidencia
-import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaViewHolder
 import es.ua.eps.incidencias.R
 
-
-class IncidenciaAdaptador  (val incidenciaList: List<Incidencia>,private val onClickListener:(Incidencia) ->Unit) :
-    RecyclerView.Adapter<IncidenciaViewHolder>() {
+class IncidenciaAdaptador  (
+    val incidenciaList: List<Incidencia>,
+    private val onClickListener:(Incidencia) ->Unit,
+    private val onClickEliminar:(Int) ->Unit ): RecyclerView.Adapter<IncidenciaViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IncidenciaViewHolder {
         //Nos infla la lista
         //Creamos un layout inflater
@@ -21,7 +20,7 @@ class IncidenciaAdaptador  (val incidenciaList: List<Incidencia>,private val onC
     override fun onBindViewHolder(holder: IncidenciaViewHolder, position: Int) {
         //Este metodo pinta
         val item = incidenciaList[position]
-        holder.bind(item, onClickListener)
+        holder.bind(item, onClickListener,onClickEliminar)
     }
 
     override fun getItemCount(): Int {

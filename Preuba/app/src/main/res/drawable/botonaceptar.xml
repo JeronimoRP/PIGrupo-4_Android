@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
     <shape xmlns:android="http://schemas.android.com/apk/res/android"
         android:shape="rectangle">
-        <corners android:radius="20dp" /> <!-- Radio de las esquinas -->
-        <solid android:color="@color/black" /> <!-- Color de fondo del botón -->
+        <corners android:radius="100dp" /> <!-- Radio de las esquinas -->
+        <solid android:color="@color/verdelimaEstado" /> <!-- Color de fondo del botón -->
     </shape>
