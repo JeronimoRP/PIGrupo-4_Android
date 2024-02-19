@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Incidencias</string>
+    <string name="navegacion_open">Abierto</string>
+    <string name="navigation_drawer_close">Cerrado</string>
+
+    <!--Actividad DatosInicioSesion -->
+    <string name="InfoInicioSesion">Iniciar Sesion con Educantabria:</string>
+    <string name="InicioSesionEducantabria">Educantabria</string>
+    <string name="InicioSesionDominio">Dominio</string>
+
+    <!--Actividad DatosInicioSesion -->
+    <string name="vas_iniciar_sesion_con">Vas iniciar sesion con educantabria</string>
+    <string name="vas_a_inicar_sesion_con">Vas a inicar sesion con el dominio</string>
+    <string name="btniniciar_sesion">Iniciar Sesion</string>
+    <string name="btnAtras">Atras</string>
+    <string name="incidenciasToolbar">Incidencias</string>
+    <string name="editar_incidencia">EDITAR INCIDENCIA</string>
+    <string name="aceptarcambios">Aceptar</string>
+    <string name="escribetucomentario">Escribe tu comentario sobre esta incidencia</string>
+    <string name="hint_escribetucomentario">Escribe tu comentario</string>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_header"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:gravity="bottom"
+    android:padding="16dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/azulito"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    <ImageView
+        android:id="@+id/img_nav_header"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/menu"
+        android:contentDescription="Imagen de tu perdin"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alvaro"
+        android:paddingTop="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/rojoEstado"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+</LinearLayout>
