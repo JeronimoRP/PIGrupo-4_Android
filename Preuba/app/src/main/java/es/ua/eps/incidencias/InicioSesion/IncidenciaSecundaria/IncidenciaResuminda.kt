@@ -14,11 +14,13 @@ import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
+import es.ua.eps.incidencias.InicioSesion.CrearIncidencia.CrearIncidencia
 import es.ua.eps.incidencias.InicioSesion.EditarIncidencias.EditarIncidencias
 import es.ua.eps.incidencias.R
 import es.ua.eps.incidencias.databinding.ActivityIncidenciaResumidaBinding
@@ -132,12 +134,39 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.nav_anaidir -> Toast.makeText(this,"Item 1", Toast.LENGTH_SHORT).show()
+            R.id.nav_resumen -> MensajeResumen()
+            R.id.nav_anaidir -> CrearIncidencia()
             R.id.nav_vertodo ->  Toast.makeText(this,"Item 2", Toast.LENGTH_SHORT).show()
             R.id.nav_cerrarSesion ->  Toast.makeText(this,"Item 3", Toast.LENGTH_SHORT).show()
         }
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    fun CrearIncidencia(){
+        val intent = Intent(this, CrearIncidencia::class.java)
+        startActivity(intent)
+    }
+    fun MensajeResumen(){
+        // Crear el cuadro de diálogo
+        val builder = AlertDialog.Builder(this)
+
+        // Establecer el mensaje del cuadro de diálogo
+        builder.setMessage("Estas ya en esta pagina")
+
+        // Configurar el botón "Aceptar" con un fondo de color personalizado
+        builder.setPositiveButton("Aceptar") { dialog, id ->
+            // Puedes agregar acciones adicionales al hacer clic en Aceptar si es necesario
+            dialog.dismiss()
+        }
+
+        // Mostrar el cuadro de diálogo
+        val alertDialog = builder.create()
+        alertDialog.setOnShowListener {
+            val positiveButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+        }
+        alertDialog.show()
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {

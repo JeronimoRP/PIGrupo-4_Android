@@ -4,9 +4,9 @@
     android:id="@+id/nav_header"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="200dp"
     android:gravity="bottom"
-    android:padding="16dp"
+    android:padding="10dp"
     android:clickable="true"
     android:focusable="true"
     android:background="@color/azulito"
@@ -14,18 +14,17 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
     <ImageView
         android:id="@+id/img_nav_header"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/menu"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/miguelherrero"
         android:contentDescription="Imagen de tu perdin"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alvaro"
-        android:paddingTop="16dp"
+        android:text="Nombre"
         android:textSize="18sp"
-        android:textColor="@color/rojoEstado"
+        android:textColor="@color/black"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>

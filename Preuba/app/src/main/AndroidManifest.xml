@@ -13,16 +13,17 @@
         android:theme="@style/Base.Theme.Incidencias"
         tools:targetApi="31">
         <activity
+            android:name=".InicioSesion.CrearIncidencia.CrearIncidencia"
+            android:exported="false" />
+        <activity
             android:name=".InicioSesion.EditarIncidencias.EditarIncidencias"
             android:exported="false" />
         <activity
             android:name=".InicioSesion.IncidenciaSecundaria.IncidenciaResuminda"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".InicioSesion.InicioSesion"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

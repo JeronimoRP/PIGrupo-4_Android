@@ -18,4 +18,13 @@
     <string name="aceptarcambios">Aceptar</string>
     <string name="escribetucomentario">Escribe tu comentario sobre esta incidencia</string>
     <string name="hint_escribetucomentario">Escribe tu comentario</string>
+
+    <!-- Actividiad Crear Incidencia -->
+    <string name="CrearIncidenciaAula">Aula:</string>
+    <string name="crearequipo">Equipo:</string>
+    <string name="CrearEtiqueta">Etiqueta:</string>
+    <string name="CrearDescripcion">Descripcion:</string>
+    <string name="Crearfecha_inicio">Fecha Inicio:</string>
+    <string name="Crear">Crear</string>
+    <string name="CrearIncidenciaCancelar">Cancelar</string>
 </resources>
