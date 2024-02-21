@@ -24,4 +24,6 @@
     <string name="creacionTiposubtipo">Subtipo</string>
     <string name="crearTipoguardar">Guardar</string>
     <string name="CrearTipocancelar">Cancelar</string>
+    <string name="IncidenteCompleto_tipoincidente">Tipo Incidente:</string>
+    <string name="IncidenciaCompletafecha_creada">Fecha-Creada:</string>
 </resources>

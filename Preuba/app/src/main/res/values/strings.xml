@@ -82,7 +82,8 @@
     <string name="Crearfecha_inicio">Fecha Inicio:</string>
     <string name="Crear">Crear</string>
     <string name="CrearIncidenciaCancelar">Cancelar</string>
-
+    <string name="IncidenteCompleto_tipoincidente">Tipo Incidente:</string>
+    <string name="IncidenciaCompletafecha_creada">Fecha-Creada:</string>
 
 
 </resources>

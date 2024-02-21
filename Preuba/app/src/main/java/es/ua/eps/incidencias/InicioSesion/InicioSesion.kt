@@ -3,7 +3,9 @@ package es.ua.eps.incidencias.InicioSesion
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaResuminda
@@ -16,7 +18,7 @@ class InicioSesion : AppCompatActivity() {
         val binding = ActivityIniciosesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnIniciarSesion.setOnClickListener(){
+        binding.btnInicioSesion.setOnClickListener(){
             var vali = validar()
             if (vali == true) {
                 val intent2 = Intent(this, IncidenciaResuminda::class.java)
@@ -25,25 +27,26 @@ class InicioSesion : AppCompatActivity() {
                 camposVacios("El usuario  o la contraseña esta vacio")
             }
         }
+
     }
 
 
     fun validar():Boolean{
         var validar = true
-        var nom  = findViewById(R.id.etxtEscribir) as EditText
-        var contra = findViewById(R.id.etxtPescribir) as EditText
+        var nom  = findViewById(R.id.etxtcorreo) as EditText
+        var contra = findViewById(R.id.etxtcontra) as EditText
 
         var nombres = nom.text.toString()
         var co = contra.text.toString()
 
         if(nombres.isEmpty()){
-            validar = false
+            return  false
         }
 
         if(co.toString().isEmpty()){
-            validar = false
+            return  false
         }
-        return validar
+        return true
     }
     private fun camposVacios(cadena:String) {
         // Crear el cuadro de diálogo

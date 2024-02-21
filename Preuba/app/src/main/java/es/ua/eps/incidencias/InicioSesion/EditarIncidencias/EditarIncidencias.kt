@@ -51,6 +51,10 @@ class EditarIncidencias : AppCompatActivity(),  NavigationView.OnNavigationItemS
         binding.imgAceptar.setOnClickListener(){
             guardarCambios(incidencia)
         }
+
+        binding.imgCancelar.setOnClickListener(){
+            volverParaAtras()
+        }
     }
 
     fun cargarDatos(incidencia: Incidencia){

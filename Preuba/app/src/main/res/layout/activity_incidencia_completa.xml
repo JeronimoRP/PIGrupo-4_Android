@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/drawer_layout_incidencia_completa"
     tools:context=".InicioSesion.IncidenciaSecundaria.IncidenciaResuminda"
     android:clickable="true"
     android:focusable="true">
@@ -19,8 +19,13 @@
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/nav_view"
+        android:id="@+id/nav_view2"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"/>
+
+
+
+
+
 </androidx.drawerlayout.widget.DrawerLayout>
