@@ -2,13 +2,10 @@ package es.ua.eps.incidencias.InicioSesion.EditarIncidencias
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat

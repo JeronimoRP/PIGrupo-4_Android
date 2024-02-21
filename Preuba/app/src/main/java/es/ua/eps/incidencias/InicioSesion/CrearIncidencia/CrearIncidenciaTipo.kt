@@ -12,14 +12,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
-import androidx.core.view.isInvisible
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaResuminda
 import es.ua.eps.incidencias.InicioSesion.InicioSesion
 import es.ua.eps.incidencias.R
 import es.ua.eps.incidencias.databinding.ActivityCrearIncidenciaTipoBinding
-import es.ua.eps.incidencias.databinding.ActivityIncidenciaResumidaBinding
 
 class CrearIncidenciaTipo : AppCompatActivity(),
     NavigationView.OnNavigationItemSelectedListener {
