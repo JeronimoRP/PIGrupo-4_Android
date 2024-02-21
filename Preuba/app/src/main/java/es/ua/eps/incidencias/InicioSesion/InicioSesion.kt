@@ -15,8 +15,7 @@ class InicioSesion : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityIniciosesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.etxtEscribir.hint= "Introduce el correo"
-        binding.etxtPescribir.hint="Contraseña"
+
         binding.btnIniciarSesion.setOnClickListener(){
             var vali = validar()
             if (vali == true) {

@@ -4,81 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InicioSesion.InicioSesion">
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:background="@color/gris">
 
-    <TextView
-        android:id="@+id/txtInfoInicioSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/InfoInicioSesion"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
 
-    <TextView
-        android:id="@+id/txtInfoDatosIninSesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+    <ImageView
+        android:id="@+id/imgPersona"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_gravity="center"
+        android:src="@drawable/persona"
+        android:foregroundGravity="center"
+        android:layout_marginBottom="0sp"
+        android:background="@drawable/imginiciosesion"
+        android:shape="oval"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="110sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134" />
+        app:layout_constraintVertical_bias="0.11" />
 
-    <EditText
-        android:id="@+id/etxtEscribir"
-        android:layout_width="225dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.431" />
-
-    <EditText
-        android:id="@+id/etxtPescribir"
-        android:layout_width="225dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562" />
-
-    <Button
-        android:id="@+id/btnIniciarSesion"
-        android:layout_width="200dp"
-        android:layout_height="65dp"
-        android:text="@string/btniniciar_sesion"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.737" />
-
-    <ImageView
-        android:id="@+id/imgLogo"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cdiniciosesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
+        android:backgroundTint="@color/azulito"
+        app:cardCornerRadius="0sp"
+        app:cardElevation="0sp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121" />
+        app:layout_constraintTop_toTopOf="parent">
+        <!-- android:layout_marginBottom="-30sp" -->
+
+        <LinearLayout
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/txtInfoInicioSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/InfoInicioSesion"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20sp"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.312" />
+
+            <EditText
+                android:id="@+id/etxtEscribir"
+                android:layout_width="260sp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:drawableLeft="@drawable/persona"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Escribe tu correo"
+                android:textColorHint="@color/black"
+                android:inputType="text"
+                android:layout_marginTop="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtInfoInicioSesion"
+                app:layout_constraintVertical_bias="0.431" />
+
+            <EditText
+                android:id="@+id/etxtPescribir"
+                android:layout_width="260sp"
+                android:layout_height="45sp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:drawableLeft="@drawable/persona"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Contraseña"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="20sp"
+                android:inputType="textPassword"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/etxtEscribir"
+                app:layout_constraintVertical_bias="0.562" />
+
+            <Button
+                android:id="@+id/btnIniciarSesion"
+                android:layout_width="200dp"
+                android:layout_height="65dp"
+                android:text="@string/btniniciar_sesion"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="20sp"
+                android:layout_marginTop="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/etxtPescribir"
+                app:layout_constraintVertical_bias="0.737" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

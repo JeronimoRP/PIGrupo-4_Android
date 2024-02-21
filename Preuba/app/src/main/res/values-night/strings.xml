@@ -18,4 +18,10 @@
     <string name="Crearfecha_inicio">Fecha Inicio:</string>
     <string name="Crear">Crear Incidencia</string>
     <string name="CrearIncidenciaCancelar">Cancelar</string>
+    <string name="crear_incidencia_tipo">CREAR INCIDENCIA TIPO</string>
+    <string name="CreacionTipo_tipo">Tipo:</string>
+    <string name="creacionTipo_tipo_nombre">Tipo Nombre:</string>
+    <string name="creacionTiposubtipo">Subtipo</string>
+    <string name="crearTipoguardar">Guardar</string>
+    <string name="CrearTipocancelar">Cancelar</string>
 </resources>

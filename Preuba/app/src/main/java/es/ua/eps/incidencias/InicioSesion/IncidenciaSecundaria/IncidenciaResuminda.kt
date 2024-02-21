@@ -1,17 +1,13 @@
 package es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -20,8 +16,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
-import es.ua.eps.incidencias.InicioSesion.CrearIncidencia.CrearIncidencia
+import es.ua.eps.incidencias.InicioSesion.CrearIncidencia.CrearIncidenciaTipo
 import es.ua.eps.incidencias.InicioSesion.EditarIncidencias.EditarIncidencias
+import es.ua.eps.incidencias.InicioSesion.InicioSesion
 import es.ua.eps.incidencias.R
 import es.ua.eps.incidencias.databinding.ActivityIncidenciaResumidaBinding
 
@@ -42,20 +39,10 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-       binding = ActivityIncidenciaResumidaBinding.inflate(layoutInflater)
+        binding = ActivityIncidenciaResumidaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
-        setSupportActionBar(toolbar)
-
-        drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-
-        supportActionBar?.setDisplayShowTitleEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
-
-        val navigationView: NavigationView = findViewById(R.id.nav_view)
-        navigationView.setNavigationItemSelectedListener(this)
+         cargartoolbar()
 
         // Encuentra la referencia al botón de menú en el layout activity_incidencia_resumida.xml
         val botonOtroLayout: ImageView = findViewById(R.id.btnmenu)
@@ -79,6 +66,18 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
 
 
     }
+    fun cargartoolbar(){
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
+        setSupportActionBar(toolbar)
+
+        drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+
+        supportActionBar?.setDisplayShowTitleEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+
+        val navigationView: NavigationView = findViewById(R.id.nav_view)
+        navigationView.setNavigationItemSelectedListener(this)
+    }
 
     private fun initRecycleView(rvIncidencias: RecyclerView) {
             rvIncidencias.adapter = IncidenciaAdaptador(
@@ -87,10 +86,6 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
             onClickEliminar = { position -> onDeletedItem(position) }
 
         )
-    }
-
-    fun onDeletedItem(position: Int) {
-        mensajeEliminar(position)
     }
 
     private fun onItemSelected(incidencia: Incidencia) {
@@ -107,6 +102,10 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
         intent.putExtra("numOpcion", num)
         startActivityForResult(intent, REQUEST_CODE)
         startActivity(intent)
+    }
+
+    fun onDeletedItem(position: Int) {
+        mensajeEliminar(position)
     }
 
     private fun mensajeEliminar(posicion: Int) {
@@ -137,14 +136,35 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
             R.id.nav_resumen -> MensajeResumen()
             R.id.nav_anaidir -> CrearIncidencia()
             R.id.nav_vertodo ->  Toast.makeText(this,"Item 2", Toast.LENGTH_SHORT).show()
-            R.id.nav_cerrarSesion ->  Toast.makeText(this,"Item 3", Toast.LENGTH_SHORT).show()
+            R.id.nav_cerrarSesion ->  CerrarSesion()
         }
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+    override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onPostCreate(savedInstanceState, persistentState)
+        toggle.syncState()
+    }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        toggle.onConfigurationChanged(newConfig)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(toggle.onOptionsItemSelected(item)){
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    fun CerrarSesion(){
+        val intent = Intent(this, InicioSesion::class.java)
+        startActivity(intent)
+    }
     fun CrearIncidencia(){
-        val intent = Intent(this, CrearIncidencia::class.java)
+        val intent = Intent(this, CrearIncidenciaTipo::class.java)
         startActivity(intent)
     }
     fun MensajeResumen(){
@@ -168,23 +188,4 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
         }
         alertDialog.show()
     }
-
-    override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onPostCreate(savedInstanceState, persistentState)
-        toggle.syncState()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        toggle.onConfigurationChanged(newConfig)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(toggle.onOptionsItemSelected(item)){
-            return true
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
-
 }
