@@ -18,7 +18,6 @@ import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaResumin
 import es.ua.eps.incidencias.InicioSesion.InicioSesion
 import es.ua.eps.incidencias.R
 import es.ua.eps.incidencias.databinding.ActivityCrearIncidenciaBinding
-import es.ua.eps.incidencias.databinding.ActivityIncidenciaResumidaBinding
 
 class CrearIncidencia : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     lateinit var binding: ActivityCrearIncidenciaBinding
