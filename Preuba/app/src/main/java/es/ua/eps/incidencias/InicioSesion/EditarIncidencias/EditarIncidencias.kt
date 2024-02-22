@@ -12,8 +12,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import es.ua.eps.incidencias.InicioSesion.CrearIncidencia.CrearIncidenciaTipo
-import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.Incidencia
-import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaProvider
+import es.ua.eps.incidencias.InicioSesion.modelo.Incidencia
 import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaResuminda
 import es.ua.eps.incidencias.InicioSesion.InicioSesion
 import es.ua.eps.incidencias.R
@@ -55,7 +54,7 @@ class EditarIncidencias : AppCompatActivity(),  NavigationView.OnNavigationItemS
     }
 
     fun cargarDatos(incidencia: Incidencia){
-        binding.txtAulaYorde.text = "Aula: ${incidencia.aula}  equipo: ${incidencia.equipo}"
+        binding.txtAulaYorde.text = "Aula: ${incidencia.estado}  equipo: ${incidencia.tipo}"
         binding.etxtmDescripcion.setText(incidencia.descripcion)
     }
 

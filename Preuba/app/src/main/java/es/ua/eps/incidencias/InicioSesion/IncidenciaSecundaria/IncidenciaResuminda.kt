@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -19,6 +20,7 @@ import com.google.android.material.navigation.NavigationView
 import es.ua.eps.incidencias.InicioSesion.CrearIncidencia.CrearIncidenciaTipo
 import es.ua.eps.incidencias.InicioSesion.EditarIncidencias.EditarIncidencias
 import es.ua.eps.incidencias.InicioSesion.InicioSesion
+import es.ua.eps.incidencias.InicioSesion.modelo.Incidencia
 import es.ua.eps.incidencias.R
 import es.ua.eps.incidencias.databinding.ActivityIncidenciaResumidaBinding
 
@@ -31,6 +33,9 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
     //para ele menu drawer
     private lateinit var  drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
+
+    //recuperar nombre
+    var nombre:String = ""
 
     //Para llevar cosas
     companion object {

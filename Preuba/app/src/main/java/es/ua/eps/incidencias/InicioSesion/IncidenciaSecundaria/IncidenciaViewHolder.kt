@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.view.View
 import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
+import es.ua.eps.incidencias.InicioSesion.modelo.Incidencia
 import es.ua.eps.incidencias.databinding.ItemIncidenciasBinding
 
 class IncidenciaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -15,8 +16,8 @@ class IncidenciaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         onClickListener: (Incidencia) -> Unit,
         onClickEliminar: (Int) -> Unit
     ) {
-        binding.txtAula.text = "Aula: ${incidencia.aula}  equipo:  ${incidencia.equipo}"
-        binding.txtEtiqueta.text = "Etiqueta: ${incidencia.etiqueta}"
+        binding.txtAula.text = "Aula: ${incidencia.tipo}  equipo:  ${incidencia.tipo}"
+        binding.txtEtiqueta.text = "Etiqueta: ${incidencia.tipo}"
         binding.txtDescripcion.text = "Descripcion: ${incidencia.descripcion}"
         binding.btnEstado.text = incidencia.estado
         binding.imgbotoneditar.setOnClickListener { onClickListener(incidencia) }

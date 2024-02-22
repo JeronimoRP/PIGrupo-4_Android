@@ -3,6 +3,7 @@ package es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import es.ua.eps.incidencias.InicioSesion.modelo.Incidencia
 import es.ua.eps.incidencias.R
 
 class IncidenciaAdaptador  (
