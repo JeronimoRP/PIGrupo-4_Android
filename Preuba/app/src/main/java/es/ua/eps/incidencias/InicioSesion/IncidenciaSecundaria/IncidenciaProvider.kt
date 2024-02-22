@@ -1,5 +1,7 @@
 package es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria
 
+import es.ua.eps.incidencias.InicioSesion.modelo.Incidencia
+
 object IncidenciaProvider {
    val incidenciaList: MutableList<Incidencia> = mutableListOf<Incidencia>(
         Incidencia(
