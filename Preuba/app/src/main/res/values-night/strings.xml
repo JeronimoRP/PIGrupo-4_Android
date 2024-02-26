@@ -26,4 +26,11 @@
     <string name="CrearTipocancelar">Cancelar</string>
     <string name="IncidenteCompleto_tipoincidente">Tipo Incidente:</string>
     <string name="IncidenciaCompletafecha_creada">Fecha-Creada:</string>
+    <string name="Editaraula">Aula:</string>
+    <string name="EditEquipo">Equipo:</string>
+    <string name="Editetiqueta">Etiqueta:</string>
+    <string name="Edtitipo">Tipo:</string>
+    <string name="Editnombre">Nombre</string>
+    <string name="descripcion_de_la_incidencia">Descripcion de la incidencia:</string>
+    <string name="EditSubtipo">Subtipo:</string>
 </resources>

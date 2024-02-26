@@ -16,7 +16,7 @@ class IncidenciaViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         onClickListener: (Incidencia) -> Unit,
         onClickEliminar: (Int) -> Unit
     ) {
-        binding.txtAula.text = "Aula: ${incidencia.tipo}  equipo:  ${incidencia.tipo}"
+        binding.txtAula.text = "Aula: ${incidencia.tipo} "
         binding.txtEtiqueta.text = "Etiqueta: ${incidencia.tipo}"
         binding.txtDescripcion.text = "Descripcion: ${incidencia.descripcion}"
         binding.btnEstado.text = incidencia.estado

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -29,9 +30,8 @@ import es.ua.eps.incidencias.databinding.ActivityIncidenciaResumidaBinding
 class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var usuario_activo: Usuario_activo
     lateinit var binding: ActivityIncidenciaResumidaBinding
-    private var incidenciasMutableList: MutableList<Incidencia> =
-        IncidenciaProvider.incidenciaList.toMutableList()
-    private lateinit var adapter: IncidenciaAdaptador
+
+    private lateinit var incidenciasMutableList: MutableList<Incidencia>
 
     //para ele menu drawer
     private lateinit var drawer: DrawerLayout
@@ -50,12 +50,16 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
         binding = ActivityIncidenciaResumidaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         usuario_activo = intent.extras?.getSerializable("usuario") as Usuario_activo
+        incidenciasMutableList =  usuario_activo.incidenciaList!!.toMutableList()
         cargartoolbar()
+
+
 
         // Encuentra la referencia al botón de menú en el layout activity_incidencia_resumida.xml
         val botonOtroLayout: ImageView = findViewById(R.id.btnmenu)
-        val txtombre: TextView = findViewById(R.id.txtNombre)
-        txtombre.text=usuario_activo.nombre
+
+
+
         // Agrega un listener de clic al botón de menú
         botonOtroLayout.setOnClickListener {
             if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -86,6 +90,15 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
+
+        // Obtiene la cabecera del NavigationView
+        val headerView: View = navigationView.getHeaderView(0)
+
+        // Obtén una referencia al TextView dentro de la cabecera del NavigationView
+        val txtNombreHeader: TextView = headerView.findViewById(R.id.txtnombreheader)
+
+        // Establece el nombre del usuario
+        txtNombreHeader.text = usuario_activo.nombre
     }
 
     private fun initRecycleView(rvIncidencias: RecyclerView) {
@@ -109,6 +122,7 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
         val intent = Intent(this, EditarIncidencias::class.java)
         intent.putExtra("incidencia", incidencia)
         intent.putExtra("numOpcion", num)
+        intent.putExtra("usuario",usuario_activo)
         startActivityForResult(intent, REQUEST_CODE)
         startActivity(intent)
     }
@@ -176,6 +190,7 @@ class IncidenciaResuminda : AppCompatActivity(), NavigationView.OnNavigationItem
 
     fun CrearIncidencia() {
         val intent = Intent(this, CrearIncidenciaTipo::class.java)
+        intent.putExtra("usuario",usuario_activo)
         startActivity(intent)
     }
 

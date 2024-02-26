@@ -6,7 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -16,19 +20,27 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import es.ua.eps.incidencias.InicioSesion.IncidenciaSecundaria.IncidenciaResuminda
 import es.ua.eps.incidencias.InicioSesion.InicioSesion
+import es.ua.eps.incidencias.InicioSesion.modelo.Usuario_activo
 import es.ua.eps.incidencias.R
 import es.ua.eps.incidencias.databinding.ActivityCrearIncidenciaTipoBinding
 
 class CrearIncidenciaTipo : AppCompatActivity(),
     NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var usuario_activo: Usuario_activo
+
     lateinit var binding: ActivityCrearIncidenciaTipoBinding
     //para ele menu drawer
     private lateinit var  drawer: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
+
+    var Tipo: String ?=null
+    var tipoNombre :String ?=null
+    var tipoNombreTipo:String ? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCrearIncidenciaTipoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        usuario_activo = intent.extras?.getSerializable("usuario") as Usuario_activo
            cargartoolbar()
         // Encuentra la referencia al botón de menú en el layout activity_incidencia_resumida.xml
 
@@ -53,6 +65,104 @@ class CrearIncidenciaTipo : AppCompatActivity(),
         binding.btnCrearTipoCancelar.setOnClickListener(){
             Toast.makeText(this,"hola",Toast.LENGTH_SHORT).show()
         }
+
+
+        binding.spinnerTipo.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                // Obtiene el valor seleccionado del Spinner y lo guarda en una variable
+                Tipo = parent?.getItemAtPosition(position).toString()
+                modificarSpinners(Tipo!!)
+
+                // Usa el valor seleccionado como desees (por ejemplo, asignarlo a una variable)
+                // Puedes utilizar 'valorSeleccionado' aquí o pasarlo a una función, etc.
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Maneja el caso cuando no se ha seleccionado ningún elemento (opcional)
+            }
+        }
+
+        binding.spnsubtipoNombre.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                // Obtiene el valor seleccionado del Spinner y lo guarda en una variable
+                tipoNombre = parent?.getItemAtPosition(position).toString()
+                modificarSpinners2(tipoNombre!!)
+
+                // Usa el valor seleccionado como desees (por ejemplo, asignarlo a una variable)
+                // Puedes utilizar 'valorSeleccionado' aquí o pasarlo a una función, etc.
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Maneja el caso cuando no se ha seleccionado ningún elemento (opcional)
+            }
+        }
+
+    }
+    fun modificarSpinners(valor :String){
+        if (valor.equals("EQUIPO")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_equipo))
+            )
+            binding.spnsubtipoNombre.adapter = adapter
+        }
+
+        if (valor.equals("CUENTAS")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_cuentas))
+            )
+            binding.spnsubtipoNombre.adapter = adapter
+        }
+        if (valor.equals("WIFI")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_wifi))
+            )
+            binding.spnsubtipoNombre.adapter = adapter
+        }
+
+        if (valor.equals("INTERNET")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_internet))
+            )
+            binding.spnsubtipoNombre.adapter = adapter
+        }
+
+        if (valor.equals("SOFTWARE")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_equipo))
+            )
+            binding.spnsubtipoNombre.adapter = adapter
+        }
+    }
+
+    fun modificarSpinners2(valor:String){
+        if (valor.equals("PC")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_pc))
+            )
+            binding.spnsubsubtipo.adapter = adapter
+        }
+
+        if (valor.equals("PORTATIL")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_portatil))
+            )
+            binding.spnsubsubtipo.adapter = adapter
+        }
+
+        if (valor.equals("YEDRA")){
+            val adapter = ArrayAdapter<CharSequence>(
+                this, android.R.layout.simple_spinner_item,
+                resources.getStringArray((R.array.tipo_nombre_array_yedra))
+            )
+            binding.spnsubsubtipo.adapter = adapter
+        }
     }
     fun cargartoolbar(){
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar_main)
@@ -64,6 +174,15 @@ class CrearIncidenciaTipo : AppCompatActivity(),
 
         val navigationView: NavigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
+
+        // Obtiene la cabecera del NavigationView
+        val headerView: View = navigationView.getHeaderView(0)
+
+        // Obtén una referencia al TextView dentro de la cabecera del NavigationView
+        val txtNombreHeader: TextView = headerView.findViewById(R.id.txtnombreheader)
+
+        // Establece el nombre del usuario
+        txtNombreHeader.text = usuario_activo.nombre
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

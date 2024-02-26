@@ -12,12 +12,8 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ApiService {
-    @GET("/ap/creador/{creadorId}")
-    suspend fun getIncidencia(@Path("creadorId") Incidencia:String):Response<IncidenciaDataResponse>
 
     @POST("login") //TODO: CAMBIAR ENDPOINT A FINAL
     fun getUsuario(@Body requestBody: RequestBody): Call<UsuarioItemResponse>
 
-    @GET("/api/coches/{id}")
-    suspend fun getIncidenciaDetail(@Path("id") IncidenciaId:String):Response<IncidenciaDetailResponse>
 }

@@ -3,64 +3,66 @@ package es.ua.eps.incidencias.InicioSesion.modelo
 import java.io.Serializable
 
 class Incidencia : Serializable {
-    var num : String ?= null
-    var tipo : String ?= null
-    var subtipo_id : String ?= null
-    var fecha_creacion : String ?= null
-    var fecha_cierre : String ?= null
-    var descripcion : String ?= null
-    var estado : String ?= null
-    var adjunto_url : String ?= null
-    var creador_id : String ?= null
-    var responsable_id : String ?= null
-    var equipo_id : Equipo ?= null
-    var tiempo_dec : String ?= null
-    var comentarios : MutableList<String> ?=null
+    var id: Int? = null
+
+    var num = 0
+
+    var adjuntoUrl: String? = null
+
+    var descripcion: String? = null
+
+    var estado: String? = null
+
+    var fechaCierre: String? = null
+
+    var fechaCreacion: String? = null
+
+    var tipo: String? = null
+
+    var comentarios: MutableList<Comentario>? = null
+
+    var equipo: String? = null
+
+    var incidenciasSubtipo: Tipo? = null
+
+    var profesorIncidencia: Personal? = null
+
+    var profesorAdministrador: Personal? = null
 
 
     constructor()
-
-    constructor(nombre:String){
-
-    }
-
-    constructor(aula:String, equip:String, eti:String, descrip:String,estad:String){
-        this.descripcion = descrip
-        this.estado = estad
-    }
-
     constructor(
-        num: String?,
-        tipo: String?,
-        subtipo_id: String?,
-        fecha_creacion: String?,
-        fecha_cierre: String?,
+        id: Int?,
+        num: Int,
+        adjuntoUrl: String?,
         descripcion: String?,
         estado: String?,
-        adjunto_url: String?,
-        creador_id: String?,
-        responsable_id: String?,
-        equipo_id: Equipo?,
-        tiempo_dec: String?,
-        comentarios: MutableList<String>?
+        fechaCierre: String?,
+        fechaCreacion: String?,
+        tipo: String?,
+        comentarios: MutableList<Comentario>?,
+        equipo: String?,
+        incidenciasSubtipo: Tipo?,
+        profesorIncidencia: Personal?,
+        profesorAdministrador: Personal?
     ) {
+        this.id = id
         this.num = num
-        this.tipo = tipo
-        this.subtipo_id = subtipo_id
-        this.fecha_creacion = fecha_creacion
-        this.fecha_cierre = fecha_cierre
+        this.adjuntoUrl = adjuntoUrl
         this.descripcion = descripcion
         this.estado = estado
-        this.adjunto_url = adjunto_url
-        this.creador_id = creador_id
-        this.responsable_id = responsable_id
-        this.equipo_id = equipo_id
-        this.tiempo_dec = tiempo_dec
+        this.fechaCierre = fechaCierre
+        this.fechaCreacion = fechaCreacion
+        this.tipo = tipo
         this.comentarios = comentarios
+        this.equipo = equipo
+        this.incidenciasSubtipo = incidenciasSubtipo
+        this.profesorIncidencia = profesorIncidencia
+        this.profesorAdministrador = profesorAdministrador
     }
 
 
-    public fun addComentario(comentario:String){
+    public fun addComentario(comentario:Comentario){
         this.comentarios?.add(comentario)
     }
 }

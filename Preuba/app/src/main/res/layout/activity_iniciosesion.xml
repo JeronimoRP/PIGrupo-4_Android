@@ -30,6 +30,7 @@
         android:backgroundTintMode="@color/black"
         android:hint="Correo"
         android:drawableLeft="@drawable/email"
+        android:singleLine="true"
         android:textColorHint="@color/black"
         android:gravity="center"
         android:foregroundGravity="center"

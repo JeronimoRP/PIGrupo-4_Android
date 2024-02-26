@@ -20,10 +20,10 @@
         android:contentDescription="Imagen de tu perdin"/>
 
     <TextView
-        android:id="@+id/txtNombre"
+        android:id="@+id/txtnombreheader"
         android:layout_width="wrap_content"
+        android:visibility="visible"
         android:layout_height="wrap_content"
-        android:text="Nombre"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/black"
         android:textSize="18sp" />

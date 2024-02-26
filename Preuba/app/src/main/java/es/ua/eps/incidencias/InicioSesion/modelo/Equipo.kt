@@ -1,6 +1,8 @@
 package es.ua.eps.incidencias.InicioSesion.modelo
 
-class Equipo {
+import java.io.Serializable
+
+class Equipo : Serializable {
     var id : String ?= null
     var tipo_equipo : String ?= null
     var fecha_adquisicion : String ?= null

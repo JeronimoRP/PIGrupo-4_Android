@@ -33,7 +33,7 @@ class InicioSesion : AppCompatActivity() {
             if (vali == true) {
                 val intent2 = Intent(this, IncidenciaResuminda::class.java)
                 runBlocking {
-                    val usuario_activo = getUsuarioActivo("edu@educantabria.es", "1234")
+                    val usuario_activo = getUsuarioActivo("edu@educantabria.es", "1234") //TODO: QUITAR HARDCODE
                     intent2.putExtra("usuario",usuario_activo)
                     startActivity(intent2)
                 }
@@ -111,7 +111,7 @@ class InicioSesion : AppCompatActivity() {
     private fun getRetrofit(): Retrofit {
         return Retrofit
             .Builder()
-            .baseUrl("http://10.0.2.2:8080/a/")
+            .baseUrl("http://10.0.2.2:8080/personal/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
