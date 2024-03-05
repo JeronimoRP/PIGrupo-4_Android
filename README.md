@@ -1,4 +1,4 @@
-# Proyecto de Gestión de Incidencias
+# PIGrupo-4_Escritorio
 
 ## REPOSITORIOS
 
@@ -442,6 +442,93 @@ Utiliza un rcycleview con un adaptador y Hoder personalizado con imagecard para 
 Se añade o se edita una incidencia enviando hacia la api los datos de la nueva incidencia y actualizando las listas de las que las recycle view utilizan en el caso 
 
 
+## Informe sobre la Implementación de PSP (Perfil de Usuario) en la Aplicación:
+
+### Escritorio
+
+**1. Introducción:**
+La implementación del Perfil de Usuario (PSP) en la aplicación se ha llevado a cabo con el objetivo de personalizar la experiencia del usuario y garantizar la seguridad de la información. En este informe, se detallan los pasos realizados en las etapas 5.4, 5.5 y 5.6 del desarrollo.
+
+**2. Verificación del Tipo de Perfil del Usuario (Etapa 5.4):**
+Se realizó una verificación en la base de datos para determinar el tipo de perfil que posee cada usuario al iniciar sesión. Esta fase es crucial para asegurar que el acceso a la aplicación se ajuste a las necesidades y privilegios específicos de cada usuario. Se implementaron tres posibles escenarios:
+   
+   - **Mensaje de Error para Usuarios No Registrados:**
+     Si el usuario no se encuentra en la base de datos, se activa un mensaje de error indicando la falta de registro. Esto garantiza que solo usuarios autorizados tengan acceso.
+
+   - **Interfaz del Profesor:**
+     Si el perfil del usuario corresponde al de un profesor, la aplicación se inicia con la interfaz diseñada para este grupo de usuarios. Esto facilita una experiencia adaptada a las funciones y responsabilidades del profesor.
+
+   - **Interfaz del Administrador:**
+     Para los usuarios con perfil de administrador, la aplicación se inicia con una interfaz específica que proporciona acceso a funciones administrativas y controles avanzados.
+  
+**3. Encriptación de Archivos Adjuntos (Etapa 5.5):**
+Se implementó un método de seguridad robusto mediante la encriptación de archivos adjuntos que contienen incidencias y comentarios. Estos archivos se codificaron en formato base 64 para asegurar la confidencialidad y la integridad de la información. Esta medida refuerza la protección contra accesos no autorizados y garantiza que la información sensible permanezca segura durante la transmisión y el almacenamiento.
+
+**4. Recolección de Perfil de Usuario mediante el Dominio (Etapa 5.6):**
+La aplicación recopila el perfil del usuario identificando el dominio desde el cual se ha iniciado sesión. Esta información se utiliza para personalizar la experiencia del usuario según sus atributos y roles asociados con el dominio específico. La recolección del perfil a través del dominio simplifica el proceso y garantiza una adaptación precisa a las necesidades del usuario.
+
+**5. Conclusiones:**
+La implementación exitosa de estas etapas fortalece la seguridad, personalización y eficiencia de la aplicación. La combinación de verificación de perfil, encriptación de archivos y recolección de datos basada en dominio crea un entorno robusto y adaptativo para los usuarios, asegurando un acceso seguro y una experiencia óptima.
+
+### API
+
+**Generación del Salt y Encriptación de Contraseñas:**
+**Generación del Salt:**
+Se utiliza el método generarSalt() para generar un salt aleatorio, una cadena única y aleatoria. Este valor se concatenará a la contraseña antes de realizar el hash, proporcionando un nivel adicional de seguridad.
+
+``` py
+java
+Copy code
+private String generarSalt() {
+    SecureRandom random = new SecureRandom();
+    byte[] saltBytes = new byte[16];
+    random.nextBytes(saltBytes);
+    return bytesToHex(saltBytes);
+}
+```
+
+**Encriptación de la Contraseña:**
+
+**Concatenación de Salt y Contraseña:**
+
+La contraseña original se combina con el salt generado utilizando la variable contrasenaConSalt.
+Uso del Algoritmo de Hash SHA-256:
+
+Se utiliza el algoritmo de hash SHA-256 para calcular el hash de la contraseña concatenada. Este proceso asegura que la contraseña no se almacene en texto plano, agregando una capa adicional de seguridad.
+
+``` py
+java
+Copy code
+private String encriptarContrasena(String contrasena, String salt) {
+    String contrasenaConSalt = salt + contrasena;
+    try {
+        MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+        byte[] hashBytes = messageDigest.digest(contrasenaConSalt.getBytes());
+        return bytesToHex(hashBytes);
+    } catch (NoSuchAlgorithmException e) {
+        // Manejar la excepción de manera adecuada (puede lanzar una excepción personalizada o registrar el error)
+        e.printStackTrace();
+        return null;
+    }
+}
+
+```
+Conversión de Bytes a Hexadecimal:
+El resultado del hash se convierte a una representación hexadecimal mediante el método bytesToHex().
+
+``` py
+java
+Copy code
+private String bytesToHex(byte[] bytes) {
+    StringBuilder hexString = new StringBuilder();
+    for (byte b : bytes) {
+        hexString.append(String.format("%02x", b));
+    }
+    return hexString.toString();
+}
+```
+
+
 # Tecnologías Utilizadas en el Proyecto
 
 En este proyecto, hemos utilizado diversas tecnologías para construir y desarrollar la aplicación de gestión de incidencias. A continuación, se presentan algunas de las principales tecnologías utilizadas:
@@ -469,3 +556,4 @@ Visual Studio es un entorno de desarrollo integrado (IDE) desarrollado por Micro
 ![Logo Android Studio](URL_del_logo_3)
 
 Android Studio es un entorno de desarrollo integrado (IDE) creado por Google para facilitar y potenciar el desarrollo de aplicaciones móviles en la plataforma Android. Con un enfoque centrado en la eficiencia y la productividad, Android Studio ofrece una serie de características y funcionalidades esenciales para los desarrolladores de Android.
+
